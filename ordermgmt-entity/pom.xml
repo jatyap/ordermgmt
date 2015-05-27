@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jatyap</groupId>
 	<artifactId>ordermgmt-entity</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>ordermgmt-entity</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,26 +26,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.data</groupId> -->
-<!-- 			<artifactId>spring-data-jpa</artifactId> -->
-<!-- 			<version>1.8.0.RELEASE</version> -->
-<!-- 			<exclusions> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>org.springframework</groupId> -->
-<!-- 					<artifactId>spring-beans</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions> -->
-<!-- 		</dependency> -->
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 			<version>1.2.3.RELEASE</version>
 		</dependency>
 	</dependencies>
-	<packaging>pom</packaging>
 </project>
