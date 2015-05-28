@@ -1,35 +1,36 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Products</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<p th:text="Products" />
+	<p th:text="#{products.main.title}" />
 
-	<form id="product-form">
-	<table>
+	<a th:href="@{/products/add}" th:text="#{add.label}">Add</a>
+	<!-- <form id="product-form"> -->
+	<table class="productstable">
+		<thead>
+			<tr>
+				<th th:text="#{product.id}">Product Id</th>
+				<th th:text="#{product.name}">Product Name</th>
+				<th th:text="#{delete.label}">Delete</th>
+			</tr>
+		</thead>
 		<tr th:each="prod:${products}">
-			<td th:text="${prod.productId}"></td>
+			<td>
+				<a th:href="@{/products/modify(productId=${prod.productId})}"
+					th:text="${prod.productId}">
+				</a>
+			</td>
 			<td th:text="${prod.productName}"></td>
-			<td> <a th:href="@{/deleteProduct(productId=${prod.productId})}">Delete</a>
+			<td> <a th:href="@{/products/delete(productId=${prod.productId})}">Delete</a>
 			</td>
 		</tr>
 	</table>
-	</form>
+	<!-- </form> -->
 
-<form id="add-product-form" role="form" th:action="@{/saveProduct}" method="post" th:object="${product}">
-    <div>
-        <label for="productId">Product ID</label>
-        <input type="text" id="productId" name="productId" th:field="${product.productId}"/>
-    </div>
-    <div>
-        <label for="productName">Product Name</label>
-        <input type="text" id="productName" name="productName" th:field="${product.productName}"/>
-    </div>
-    <div>
-        <button type="submit">Save</button>
-    </div>
-</form>
 </body>
 </html>
