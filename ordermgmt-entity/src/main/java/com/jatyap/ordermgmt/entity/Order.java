@@ -23,7 +23,7 @@ public abstract class Order {
 	protected Date orderDate;
 	
 	@OneToMany
-	protected List<OrderDetail> orderDetails;
+	protected  List<OrderDetail> orderDetails;
 	
 	public void setOrderId(long orderId){
 		this.orderId = orderId;
@@ -54,12 +54,19 @@ public abstract class Order {
 		}
 		this.orderDetails.add(orderDetail);
 	}
-	
-	/*
-	public abstract <E extends OrderDetail> List<E> getOrderDetails();
 
-	public abstract <E extends OrderDetail> void addOrderDetail(E detail);
+	/*
+	public List<E> getOrderDetails(){
+		return this.orderDetails;
+	}
+
+	public void addOrderDetail(E detail){
+		this.orderDetails.add(detail);
+	}
 	
-	public abstract <E extends OrderDetail> void setOrderDetails(List<E> orderDetails);
+	public void setOrderDetails(List<E> orderDetails){
+		this.orderDetails = orderDetails;
+	}
 	*/
+
 }

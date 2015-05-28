@@ -2,13 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jatyap</groupId>
-	<artifactId>ordermgmt-entity</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<name>ordermgmt-entity</name>
+	<artifactId>ordermgmt-web</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>com.jatyap.ordermgmt.web.MainApplication</start-class>
 		<java.version>1.8</java.version>
-		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
 	<build>
 		<plugins>
@@ -23,17 +22,21 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			<version>1.2.3.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>org.neo4j</groupId>
-			<artifactId>neo4j-cypher-commons</artifactId>
-			<version>2.1.5</version>
+			<groupId>com.jatyap</groupId>
+			<artifactId>ordermgmt-entity</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

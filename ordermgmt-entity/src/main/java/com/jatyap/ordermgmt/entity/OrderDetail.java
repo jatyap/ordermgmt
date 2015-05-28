@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public abstract class OrderDetail {
+public class OrderDetail {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
