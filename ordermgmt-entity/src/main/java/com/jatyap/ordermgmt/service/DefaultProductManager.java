@@ -3,11 +3,13 @@ package com.jatyap.ordermgmt.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jatyap.ordermgmt.entity.Product;
 import com.jatyap.ordermgmt.repository.ProductRepository;
 
-public class DefaultProductServiceImpl implements ProductService {
+@Service
+public class DefaultProductManager implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
