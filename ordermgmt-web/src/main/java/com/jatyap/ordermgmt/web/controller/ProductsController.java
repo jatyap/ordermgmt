@@ -31,12 +31,13 @@ public class ProductsController {
 		return "product/add";
 	}
 
-	@RequestMapping(value="/products/add", method=RequestMethod.POST)
-	public ModelAndView addProduct(Product product, Model model) {
+	@RequestMapping(value="/products/add", method=RequestMethod.POST, params = { "save" })
+	public String addProduct(Product product, Model model) {
 		this.productService.addProduct(product);
-		return new ModelAndView("redirect:/products");
+		return "redirect:/products";
 	}
 	
+
 	@RequestMapping(value = "/products/modify")
 	public String modifyProduct(@RequestParam(value="productId", required=true) String productId, 
 			Model model){
@@ -46,9 +47,9 @@ public class ProductsController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value = "/products/modify", params = { "save" })
-	public ModelAndView modifyProduct(Product product, Model model){
+	public String modifyProduct(Product product, Model model){
 		this.productService.updateProduct(product);
-		return new ModelAndView("redirect:/products");
+		return "redirect:/products";
 	}
 	
 	@RequestMapping("/products/delete")
@@ -56,5 +57,15 @@ public class ProductsController {
 		this.productService.deleteProduct(productId);
 		return new ModelAndView("redirect:/products");
 	}
+	
+	@RequestMapping(value="/products/add", method=RequestMethod.POST, params = { "cancel" })
+	public String cancelAdd() {
+		return "redirect:/products";
+	}
+	@RequestMapping(value="/products/modify", method=RequestMethod.POST, params = { "cancel" })
+	public String cancelModify() {
+		return "redirect:/products";
+	}
+	
 
 }

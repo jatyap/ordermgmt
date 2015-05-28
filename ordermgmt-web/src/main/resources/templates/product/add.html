@@ -1,25 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Products</title>
+<title th:text="#{products.new.title}">New</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<p th:text="#{products.new.title}" />
 
 
-<form id="add-product-form" role="form" th:action="@{/products/add}" method="post" th:object="${product}">
-    <div>
-        <label for="productId" th:text="#{product.id}">Product ID</label>
-        <input type="text" id="productId" name="productId" th:field="${product.productId}"/>
-    </div>
-    <div>
-        <label for="productName" th:text="#{product.name}">Product Name</label>
-        <input type="text" id="productName" name="productName" th:field="${product.productName}"/>
-    </div>
-    <div>
-        <button type="submit" th:text="#{add.label}">Save</button>
-    </div>
-</form>
+	<form id="add-product-form" role="form" th:action="@{/products/add}"
+		method="post" th:object="${product}">
+		<div>
+			<label for="productId" th:text="#{product.id}">Product ID</label> <input
+				type="text" id="productId" name="productId"
+				th:field="${product.productId}" />
+		</div>
+		<div>
+			<label for="productName" th:text="#{product.name}">Product
+				Name</label> <input type="text" id="productName" name="productName"
+				th:field="${product.productName}" />
+		</div>
+		<div>
+			<button type="submit" th:name="#{button.name.save}"
+				th:text="#{add.label}">Save</button>
+			<button type="submit" th:name="#{button.name.cancel}"
+				th:text="#{cancel.label}">Cancel</button>
+		</div>
+	</form>
 </body>
 </html>

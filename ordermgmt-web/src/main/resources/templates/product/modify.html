@@ -1,27 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Modify Product</title>
+<title th:text="#{products.modify.title}">Modify Product</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<p th:text="#{modify.label}" />
+	<p th:text="#{products.modify.title} + ' - ' + ${product.productId}" />
 
 	<form id="modify-form" role="form" th:action="@{/products/modify}"
 		method="post" th:object="${product}">
 		<div>
-			<label for="productId" th:text="*{productId}">Product Id</label> <input
-				type="hidden" id="productId" name="productId"
+			<label for="productId" th:text="*{productId}">Product Id</label> 
+			<input type="hidden" id="productId" name="productId"
 				th:field="*{productId}" th:value="*{productId}" />
 		</div>
 		<div>
-			<label for="productName" th:text="#{product.name}">Product
-				Name</label> <input type="text" id="productName" name="productName"
+			<label for="productName" th:text="#{product.name}">Product Name</label> 
+			<input type="text" id="productName" name="productName"
 				th:field="*{productName}" />
 
 		</div>
 		<div>
-			<button type="submit" name="save">Save</button>
+			<button type="submit" th:name="#{button.name.save}"
+				th:text="#{update.label}">Save</button>
+			<button type="submit" th:name="#{button.name.cancel}"
+				th:text="#{cancel.label}">Cancel</button>
 		</div>
 	</form>
 </body>
