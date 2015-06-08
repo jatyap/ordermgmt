@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="#{products.main.title}">This</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<p th:text="#{productpricing.main.title}" />
+	
+	<a th:href="@{/products/pricing/sales/newprice}" th:text="#{productpricing.newprice.title}">Add New</a>
+	
+	<table class="pricelisttable">
+		<tr th:each="pricing:${priceList}">
+			<td th:text="${pricing.product.productName}">Product</td>
+			<td th:text="${pricing.price}">Price</td>
+			<td th:text="${pricing.validFrom}">ValidFrom</td>
+			<td th:text="${pricing.validTo}">ValidTo</td>
+		</tr>
+	</table>
+
+</body>
+</html>
